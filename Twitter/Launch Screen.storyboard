@@ -16,12 +16,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="Twitter_Logo_Blue-2" id="eNb-vY-gjJ">
-                                <rect key="frame" x="-13" y="133" width="400" height="400.00000000000006"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Twitter_Logo_Blue" translatesAutoresizingMaskIntoConstraints="NO" id="Viq-yV-twV">
+                                <rect key="frame" x="-12.5" y="133.5" width="400" height="400"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Viq-yV-twV" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Q5Y-7M-GS6"/>
+                            <constraint firstItem="Viq-yV-twV" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hZr-SO-Wu4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                     </view>
                 </viewController>
@@ -31,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Twitter_Logo_Blue-2" width="400" height="400"/>
+        <image name="Twitter_Logo_Blue" width="400" height="400"/>
     </resources>
 </document>
