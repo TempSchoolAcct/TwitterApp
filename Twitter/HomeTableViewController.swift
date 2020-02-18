@@ -13,9 +13,14 @@ class HomeTableViewController: UITableViewController {
     var tweetArray = [NSDictionary]()
     var numberOfTweets: Int!
 
+    let myRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadTweets()
+        
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,7 +28,7 @@ class HomeTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    func loadTweets(){
+    @objc func loadTweets(){
         let homeURL = "https://api.twitter.com/1.1/statuses/home_timeline.json"
         let myParams = ["count": 25]
         
@@ -33,6 +38,8 @@ class HomeTableViewController: UITableViewController {
             for tweet in tweets {
                 self.tweetArray.append(tweet)
             }
+            
+            self.tableView.reloadData()
             
         }, failure: { (Error) in
             print("Couln't Retrive Tweets")
@@ -51,17 +58,22 @@ class HomeTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell", for: indexPath) as! TweetCellTableViewCell
         
-        cell.nameLabel.text = "Some Name"
-        cell.tweetLabel.text = "Some Else"
+        let user = tweetArray[indexPath.row]["user"] as! NSDictionary
+        
+        
+        
+        cell.nameLabel.text = user["name"] as? String
+        cell.tweetLabel.text = tweetArray[indexPath.row]["text"] as? String
+        
+        let imageURL = URL(string: (user["profile_image_url_https"] as! String))
+        let data = try? Data(contentsOf: imageURL!)
+        
+        if let imageData = data {
+            cell.profileImageView.image = UIImage(data: imageData)
+        }
         
         return cell
     }
-    
-    
-    
-    
-    
-    
     
     
     // MARK: - Table view data source
@@ -73,7 +85,7 @@ class HomeTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 25
+        return tweetArray.count
     }
 
     /*
