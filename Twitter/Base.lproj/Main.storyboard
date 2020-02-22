@@ -114,11 +114,60 @@
                                 <action selector="onLogout:" destination="tjS-1Y-e58" id="mAR-Ar-8Rc"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="4z4-l1-dsR">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Q7-Z3-M1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-9698.3999999999996" y="89.505247376311857"/>
+        </scene>
+        <!--Tweet View Controller-->
+        <scene sceneID="aaH-hR-DP5">
+            <objects>
+                <viewController id="0kv-Sx-UEX" customClass="TweetViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3aO-bv-SmW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tweet Text Here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tyU-HT-ErU">
+                                <rect key="frame" x="0.0" y="44" width="375" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="FSy-io-6T6"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FYS-ev-2Hc" firstAttribute="trailing" secondItem="tyU-HT-ErU" secondAttribute="trailing" id="UqE-53-rdq"/>
+                            <constraint firstItem="tyU-HT-ErU" firstAttribute="top" secondItem="FYS-ev-2Hc" secondAttribute="top" id="Zbc-0w-a5c"/>
+                            <constraint firstItem="tyU-HT-ErU" firstAttribute="leading" secondItem="FYS-ev-2Hc" secondAttribute="leading" id="cAd-Kp-HEc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FYS-ev-2Hc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iur-ZF-2hH">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="uLN-4J-fiM">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancel:" destination="0kv-Sx-UEX" id="BEv-4R-1UX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="S5u-q9-jj1">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="tweet:" destination="0kv-Sx-UEX" id="cFp-Pq-vN0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fnf-Oo-z45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-9698" y="796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xmb-th-CgL">
@@ -139,6 +188,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u5m-rr-HNc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-10570" y="90"/>
+        </scene>
+        <!--Tweet Navigation Controller-->
+        <scene sceneID="T67-N8-vRl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Iqd-lh-1QM" userLabel="Tweet Navigation Controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="q84-df-Tgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0kv-Sx-UEX" kind="relationship" relationship="rootViewController" id="kGa-Wa-qbg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KXE-Tk-E6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10570" y="796"/>
         </scene>
     </scenes>
 </document>
